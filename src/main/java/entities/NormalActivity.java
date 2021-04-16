@@ -19,6 +19,11 @@ public class NormalActivity extends Activity {
 
     @Override
     public Duration getDuration() {
-        return null;
+
+        Duration duration = null;
+        for ( Step s : steps){
+            duration = s.getDuration();
+        }
+        return duration;
     }
 }

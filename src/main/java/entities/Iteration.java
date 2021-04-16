@@ -46,6 +46,7 @@ public class Iteration {
         //return count;
     }
 
-
-
+    public List<Activity> getActivities() {
+        return activities;
+    }
 }
