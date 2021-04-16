@@ -29,7 +29,7 @@ public class ProjectTest {
     }
 
     @BeforeEach
-    public void setup() {
+    public void setup() throws SabanaResearchException{
 
         setupWellFormedProject();
         setupBadFormedProject1();
@@ -100,7 +100,7 @@ public class ProjectTest {
         assertEquals(SabanaResearchException.BAD_FORMED_NORMAL_ACTIVITY, exception.getMessage());
     }
 
-    private void setupWellFormedProject() {
+    private void setupWellFormedProject() throws SabanaResearchException {
 
         Group group = new Group(faker.team().name());
         wellFormedProject = new Project(faker.team().name(), LocalDate.now().minusDays(10), LocalDate.now().plusDays(10), group);
@@ -117,13 +117,13 @@ public class ProjectTest {
         documentedActivity.addQuestion(new Question(Question.EASY_QUESTION, faker.team().name(), Duration.ofDays(1)));
     }
 
-    private void setupBadFormedProject1() {
+    private void setupBadFormedProject1() throws SabanaResearchException {
 
         Group group = new Group(faker.team().name());
         badFormedProject1 = new Project(faker.team().name(), LocalDate.now().minusDays(10), LocalDate.now().plusDays(10), group);
     }
 
-    private void setupBadFormedProject2() {
+    private void setupBadFormedProject2() throws SabanaResearchException {
 
         Group group = new Group(faker.team().name());
         badFormedProject2 = new Project(faker.team().name(), LocalDate.now().minusDays(10), LocalDate.now().plusDays(10), group);
@@ -143,7 +143,7 @@ public class ProjectTest {
         new Iteration(faker.team().name(), badFormedProject2);
     }
 
-    private void setupBadFormedProject3() {
+    private void setupBadFormedProject3() throws SabanaResearchException {
 
         Group group = new Group(faker.team().name());
         badFormedProject3 = new Project(faker.team().name(), LocalDate.now().minusDays(10), LocalDate.now().plusDays(10), group);
@@ -163,7 +163,7 @@ public class ProjectTest {
         new NormalActivity(faker.team().name(), Activity.ACTIVE_STATE, iteration);
     }
 
-    private void setupBadFormedProject4() {
+    private void setupBadFormedProject4() throws SabanaResearchException {
 
         Group group = new Group(faker.team().name());
         badFormedProject4 = new Project(faker.team().name(), LocalDate.now().minusDays(10), LocalDate.now().plusDays(10), group);
@@ -185,7 +185,7 @@ public class ProjectTest {
         new DocumentedActivity(faker.team().name(), Activity.ACTIVE_STATE, iteration, activity2);
     }
 
-    private void setupBadFormedProject5() {
+    private void setupBadFormedProject5() throws SabanaResearchException {
 
         Group group = new Group(faker.team().name());
         badFormedProject5 = new Project(faker.team().name(), LocalDate.now().minusDays(10), LocalDate.now().plusDays(10), group);
@@ -206,7 +206,7 @@ public class ProjectTest {
         documentedActivity2.addQuestion(new Question(Question.EASY_QUESTION, faker.team().name(), Duration.ofDays(1)));
     }
 
-    private void setupBadFormedProject6() {
+    private void setupBadFormedProject6() throws SabanaResearchException {
 
         Group group = new Group(faker.team().name());
         badFormedProject6 = new Project(faker.team().name(), LocalDate.now().minusDays(10), LocalDate.now().plusDays(10), group);

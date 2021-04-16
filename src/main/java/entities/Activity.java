@@ -2,7 +2,7 @@ package entities;
 
 import java.time.Duration;
 
-public abstract class Activity {
+public abstract class Activity  {
 
     public static final String ACTIVE_STATE = "active";
     public static final String CLOSED_STATE = "closed";
@@ -13,7 +13,7 @@ public abstract class Activity {
     private String state;
     private Iteration iteration;
 
-    public Activity(String name, String state, Iteration iteration) {
+    public Activity(String name, String state, Iteration iteration) throws SabanaResearchException {
         this.name = name;
         this.state = state;
 
@@ -28,7 +28,7 @@ public abstract class Activity {
      *
      * @return true if the activity is in state pending or active, otherwise return false.
      */
-    public boolean isActive() {
+    public boolean isActive()  {
 
         return this.state.equals(ACTIVE_STATE) || this.state.equals(PENDING_STATE);
     }
@@ -38,6 +38,6 @@ public abstract class Activity {
      *
      * @return
      */
-    public abstract Duration getDuration();
+    public abstract Duration getDuration() throws SabanaResearchException;
 
 }

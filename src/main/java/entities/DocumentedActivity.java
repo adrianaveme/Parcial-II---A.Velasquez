@@ -9,7 +9,7 @@ public class DocumentedActivity extends Activity {
     private NormalActivity activity;
     private List<Question> questions;
 
-    public DocumentedActivity(String name, String state, Iteration iteration, NormalActivity activity) {
+    public DocumentedActivity(String name, String state, Iteration iteration, NormalActivity activity) throws SabanaResearchException {
         super(name, state, iteration);
         this.activity = activity;
         this.questions = new ArrayList<>();
@@ -20,16 +20,14 @@ public class DocumentedActivity extends Activity {
     }
 
     @Override
-    public Duration getDuration() {
+    public Duration getDuration() throws SabanaResearchException {
 
         Duration duration = null;
 
         if(questions.isEmpty())
-            try {
                 throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_DOCUMENTED_ACTIVITY);
-            } catch (SabanaResearchException e) {
-                e.printStackTrace();
-            }
+        if(this.activity == null)
+                throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_DOCUMENTED_ACTIVITY_WITHOUT_NORMAL_QUESTION);
 
         for (Question q : questions){
             duration = q.getDedication();
