@@ -21,4 +21,31 @@ public class Iteration {
         this.activities.add(activity);
     }
 
+    public int countOpenActivities() {
+        int count =0;
+
+        for(Activity a: this.activities){
+            if(a.isActive()){
+                count++;
+            }
+        }
+
+        /*for (int i = 0; i< this.activities.size(); i++){
+            if(this.activities.get(i).isActive()){
+                count++;
+            }
+        }*/
+
+        //Counts number of activities. Map converts activity into boolean.
+        //filter function is also used. Se hace un flujo de actividades luego un mapa un filtro y una cuenta
+
+        return (int) this.activities.stream()
+                .map(activity -> activity.isActive())
+                .filter(b -> b)
+                .count();
+        //return count;
+    }
+
+
+
 }

@@ -15,4 +15,9 @@ public class Summary {
     public LocalDate getDate() {
         return date;
     }
+
+    public Summary(int activeProjects, LocalDate date) {
+        this.activeProjects = activeProjects;
+        this.date = date;
+    }
 }

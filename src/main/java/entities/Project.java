@@ -26,9 +26,51 @@ public class Project {
     public void addIteration(Iteration iteration) {
         this.iterations.add(iteration);
     }
+    public void setDateInit(LocalDate dateInit) {
+        this.dateInit = dateInit;
+    }
+
+    public void setDateEnd(LocalDate dateEnd) {
+        this.dateEnd = dateEnd;
+    }
 
     public Duration getDuration() throws SabanaResearchException {
         return Duration.ofDays(0);
+    }
+
+    //////////////////
+
+
+    public boolean isActive() {
+        boolean isActive = true;
+
+        if(LocalDate.now().isAfter(this.dateEnd)){
+            isActive = false;
+        }
+        else{
+            int openActivities = this.countOpenActivities();
+            isActive = openActivities > 0;
+        }
+
+        return isActive;
+    }
+
+
+
+    public int countOpenActivities(){
+        /*int count =0;
+        for (Iteration i : this.iterations ){
+            count += i.countOpenActivities();
+        }
+        return count;*/
+
+        //Declara variable inicial cero y a y b
+        //se  aplica a + b, se va reduciendo ese resultado en variable inicial 0
+
+        return this.iterations
+                .stream()
+                .map(i -> i.countOpenActivities())
+                .reduce(0, (a, b) -> a+b);
     }
 
 
