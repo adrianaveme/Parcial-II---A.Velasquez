@@ -26,17 +26,10 @@ public class Project {
     public void addIteration(Iteration iteration) {
         this.iterations.add(iteration);
     }
-    public void setDateInit(LocalDate dateInit) {
-        this.dateInit = dateInit;
-    }
-
-    public void setDateEnd(LocalDate dateEnd) {
-        this.dateEnd = dateEnd;
-    }
 
     public Duration getDuration() throws SabanaResearchException {
 
-        Duration duration = null;
+        Duration d = Duration.ZERO;
 
         if (iterations.isEmpty())
             throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_PROJECT);
