@@ -52,7 +52,7 @@ public class Project {
                 duration = a.getDuration();
             }
         }
-        return Duration.ofDays(duration.toDays());
+        return duration;
     }
 
     //////////////////
