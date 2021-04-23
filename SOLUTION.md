@@ -6,7 +6,8 @@ Adriana Maria Velásquez Medina
 ![image](https://user-images.githubusercontent.com/79488147/115906572-4dc26080-a42d-11eb-9e1a-3fdaff52ea81.png)
 
 ## **2. Diseñando**
-
+![image](https://github.com/adrianaveme/Parcial-II---A.Velasquez/blob/master/diagrams/Secuencia1.png)
+![image](https://github.com/adrianaveme/Parcial-II---A.Velasquez/blob/master/diagrams/Secuencia2.png)
 ## **3. Extendiendo**
 
 
