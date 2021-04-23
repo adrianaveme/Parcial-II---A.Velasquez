@@ -9,6 +9,20 @@ Adriana Maria Velásquez Medina
 
 ## **3. Extendiendo**
 
+
+**De los diseños resultantes del punto I y II, ¿Qué debe cambiar? ¿Qué no debe cambiar?. Justifique su respuesta.**
+
+
+Cambia el diseño del punto 1 porque la duración de una actividad ahora no es solo sus steps y sus questions si no que ahora se calcula la duración de todas sus dependencias y se le suma la duración de la actividad. 
+
+Del punto 2 no habría que cambiar nada porque el método getDuration() de actividad ha cambiado para incluir la duración de las dependencias. Aunque el metodo se comporte diferente, el sintetizador llama a el método get activities duration que llama a la duración de una actividad.
+
+**Teniendo en cuenta los cambios necesarios ¿Que fue bueno y que fue malo de su diseño?**
+
+
+
+
+
 ## **4. Conceptos**
 ---
 
