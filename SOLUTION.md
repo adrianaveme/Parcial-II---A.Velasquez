@@ -3,6 +3,8 @@ Adriana Maria Velásquez Medina
 
 ## **1. Implementando**
 
+![image](https://user-images.githubusercontent.com/79488147/115906572-4dc26080-a42d-11eb-9e1a-3fdaff52ea81.png)
+
 ## **2. Diseñando**
 
 ## **3. Extendiendo**
