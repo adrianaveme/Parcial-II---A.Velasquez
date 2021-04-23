@@ -29,23 +29,14 @@ public class Project {
 
     public Duration getDuration() throws SabanaResearchException {
 
-        Duration d = Duration.ZERO;
-
-        if (iterations.isEmpty())
+        if (this.iterations.isEmpty())
             throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_PROJECT);
 
-        for (Iteration i : iterations){
-
-            List <Activity> activities = i.getActivities();
-
-            if (activities.isEmpty())
-                throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_ITERATION);
-
-            for(Activity a : activities){
-                duration = a.getDuration();
-            }
+        Duration d = Duration.ZERO;
+        for (Iteration i : this.iterations){
+            d=d.plus(i.getDuration());
         }
-        return duration;
+        return d;
     }
 
     //////////////////

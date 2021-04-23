@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,5 +49,18 @@ public class Iteration {
 
     public List<Activity> getActivities() {
         return activities;
+    }
+
+    public Duration getDuration() throws SabanaResearchException {
+
+        Duration d = Duration.ZERO;
+        if (this.activities.isEmpty())
+            throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_ITERATION);
+
+        for (Activity a : this.activities){
+            d=d.plus(a.getDuration());
+        }
+
+        return d;
     }
 }
