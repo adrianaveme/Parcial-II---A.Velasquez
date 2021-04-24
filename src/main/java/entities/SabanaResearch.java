@@ -8,6 +8,7 @@ public class SabanaResearch {
 
     private List<Group> groups;
     private List<Summary> summaries;
+    private List<Student> students;
 
     public SabanaResearch(List<Group> groups) {
         this.groups = groups;
@@ -29,7 +30,7 @@ public class SabanaResearch {
      * @return The new Summary entry.
      */
     public Summary createSummaryEntry() {
-        int activeProjects = this.groups.stream().map(g -> g.countActiveProjects()).reduce(0, (a, b) -> a + b);
+        int activeProjects = this.groups.stream().map(Group::countActiveProjects).reduce(0, Integer::sum);
 
         Summary summary = new Summary(activeProjects, LocalDate.now());
         this.summaries.add(summary);

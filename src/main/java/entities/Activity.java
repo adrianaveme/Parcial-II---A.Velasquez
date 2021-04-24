@@ -13,6 +13,7 @@ public abstract class Activity  {
     private String state;
     private Iteration iteration;
 
+
     public Activity(String name, String state, Iteration iteration) throws SabanaResearchException {
         this.name = name;
         this.state = state;

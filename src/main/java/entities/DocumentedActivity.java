@@ -9,6 +9,15 @@ public class DocumentedActivity extends Activity {
     private NormalActivity activity;
     private List<Question> questions;
 
+    public DocumentedActivity(String name, String state, Iteration iteration) throws SabanaResearchException {
+        super(name,state,iteration);
+    }
+
+    @Override
+    public boolean isActive() {
+        return super.isActive();
+    }
+
     public DocumentedActivity(String name, String state, Iteration iteration, NormalActivity activity) throws SabanaResearchException {
         super(name, state, iteration);
         this.activity = activity;

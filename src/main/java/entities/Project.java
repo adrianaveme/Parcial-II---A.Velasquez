@@ -12,6 +12,7 @@ public class Project {
     private LocalDate dateEnd;
     private Group group;
     private List<Iteration> iterations;
+    private ISynthesizer S;
 
     public Project(String name, LocalDate dateInit, LocalDate dateEnd, Group group) {
         this.name = name;
@@ -43,7 +44,7 @@ public class Project {
 
 
     public boolean isActive() {
-        boolean isActive = true;
+        boolean isActive;
 
         if(LocalDate.now().isAfter(this.dateEnd)){
             isActive = false;
@@ -70,9 +71,17 @@ public class Project {
 
         return this.iterations
                 .stream()
-                .map(i -> i.countOpenActivities())
-                .reduce(0, (a, b) -> a+b);
+                .map(Iteration::countOpenActivities)
+                .reduce(0, Integer::sum);
     }
 
+    public Duration summarize() throws SabanaResearchException {
 
+        return S.synthezise();
+
+    }
+
+    public void setDateEnd(LocalDate dateEnd) {
+        this.dateEnd = dateEnd;
+    }
 }

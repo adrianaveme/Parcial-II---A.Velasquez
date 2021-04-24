@@ -41,7 +41,7 @@ public class Iteration {
         //filter function is also used. Se hace un flujo de actividades luego un mapa un filtro y una cuenta
 
         return (int) this.activities.stream()
-                .map(activity -> activity.isActive())
+                .map(Activity::isActive)
                 .filter(b -> b)
                 .count();
         //return count;

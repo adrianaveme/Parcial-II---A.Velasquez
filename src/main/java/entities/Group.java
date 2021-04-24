@@ -18,7 +18,7 @@ public class Group {
     }
 
     public int countActiveProjects() {
-        return(int) this.projects.stream().map(p -> p.isActive()).filter(b -> b).count();
+        return(int) this.projects.stream().map(Project::isActive).filter(b -> b).count();
     }
 
 }
