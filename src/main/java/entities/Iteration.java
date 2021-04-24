@@ -6,12 +6,12 @@ import java.util.List;
 
 public class Iteration {
 
-    private String goal;
+    private String objective;
     private Project project;
     private List<Activity> activities;
 
-    public Iteration(String goal, Project project) {
-        this.goal = goal;
+    public Iteration(String objective, Project project) {
+        this.objective = objective;
         this.project = project;
         this.activities = new ArrayList<>();
 
@@ -47,6 +47,17 @@ public class Iteration {
         //return count;
     }
 
+    public int countClosedActivities() {
+
+        for(Activity a: this.activities){
+            a.isActive();
+        }
+        return (int) this.activities.stream()
+                .map(Activity::isClosed)
+                .filter(b -> b)
+                .count();
+    }
+
     public List<Activity> getActivities() {
         return activities;
     }
@@ -62,5 +73,9 @@ public class Iteration {
         }
 
         return d;
+    }
+
+    public String getObjective() {
+        return objective;
     }
 }

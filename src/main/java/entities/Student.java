@@ -21,4 +21,8 @@ public class Student {
 
         return d;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }

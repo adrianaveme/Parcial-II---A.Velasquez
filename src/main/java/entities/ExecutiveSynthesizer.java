@@ -10,9 +10,11 @@ public class ExecutiveSynthesizer implements ISynthesizer{
     public Duration synthezise() throws SabanaResearchException {
 
         Duration d = Duration.ZERO;
+        String obj = null;
 
         for (Iteration i : iterations){
-            d=d.plus(i.getDuration());
+            d=i.getDuration();
+            obj = i.getObjective();
         }
 
         return d;

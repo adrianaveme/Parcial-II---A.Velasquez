@@ -12,7 +12,6 @@ public class Project {
     private LocalDate dateEnd;
     private Group group;
     private List<Iteration> iterations;
-    private ISynthesizer S;
 
     public Project(String name, LocalDate dateInit, LocalDate dateEnd, Group group) {
         this.name = name;
@@ -75,10 +74,16 @@ public class Project {
                 .reduce(0, Integer::sum);
     }
 
-    public Duration summarize() throws SabanaResearchException {
+    public int countClosedActivities(){
 
-        return S.synthezise();
+        return this.iterations
+                .stream()
+                .map(Iteration::countClosedActivities)
+                .reduce(0, Integer::sum);
+    }
 
+    public Duration summarize(ISynthesizer s) throws SabanaResearchException {
+        return s.synthezise();
     }
 
     public void setDateEnd(LocalDate dateEnd) {
