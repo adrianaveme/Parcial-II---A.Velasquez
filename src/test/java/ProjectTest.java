@@ -100,6 +100,7 @@ public class ProjectTest {
         assertEquals(SabanaResearchException.BAD_FORMED_NORMAL_ACTIVITY, exception.getMessage());
     }
 
+
     private void setupWellFormedProject() throws SabanaResearchException {
 
         Group group = new Group(faker.team().name());

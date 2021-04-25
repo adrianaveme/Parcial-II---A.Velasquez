@@ -76,6 +76,6 @@ public class Iteration {
     }
 
     public String getObjective() {
-        return objective;
+        return this.objective;
     }
 }

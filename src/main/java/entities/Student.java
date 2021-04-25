@@ -11,6 +11,11 @@ public class Student {
     private Course approved;
     private List <Activity> assignedActivities;
 
+    public Student(String name, List<Activity> assignedActivities) {
+        this.name = name;
+        this.assignedActivities = assignedActivities;
+    }
+
     public Duration getActivitiesDuration() throws SabanaResearchException {
 
         Duration d = Duration.ZERO;

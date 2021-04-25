@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +97,7 @@ public class SabanaResearchTest {
         new NormalActivity("Investigate AR", Activity.CANCELED_STATE, I);
         new NormalActivity("Invests", Activity.CLOSED_STATE, I);
 
-        assertEquals(3, I.countClosedActivities(), "The default count of summaries");
+        assertEquals(3, I.countClosedActivities());
     }
 
     @Test
@@ -109,7 +110,18 @@ public class SabanaResearchTest {
         new NormalActivity("Investigate LOL", Activity.CANCELED_STATE, J);
         new NormalActivity("Investigate HELP", Activity.CLOSED_STATE, J);
 
-        assertEquals(1, J.countOpenActivities(), "The default count of summaries");
+        assertEquals(1, J.countOpenActivities());
+    }
+    @Test
+    @DisplayName("GIVEN sabana research WHEN open an iteration THEN Count open activities")
+    public void shouldCountOpenActivitie() throws SabanaResearchException {
+
+        Iteration J = new Iteration("1. Understand Virus", projects.get(0));
+        DocumentedActivity a2 = new DocumentedActivity("Investigate DNA", Activity.CLOSED_STATE, J);
+
+        ExecutiveSynthesizer es = new ExecutiveSynthesizer(iterations);
+
+        assertEquals(es.synthezise(), 3);
     }
 
 }

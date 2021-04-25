@@ -74,19 +74,16 @@ public class Project {
                 .reduce(0, Integer::sum);
     }
 
-    public int countClosedActivities(){
 
-        return this.iterations
-                .stream()
-                .map(Iteration::countClosedActivities)
-                .reduce(0, Integer::sum);
-    }
-
-    public Duration summarize(ISynthesizer s) throws SabanaResearchException {
+    public List <String> summarize(ISynthesizer s) throws SabanaResearchException {
         return s.synthezise();
     }
 
     public void setDateEnd(LocalDate dateEnd) {
         this.dateEnd = dateEnd;
+    }
+
+    public List<Iteration> getIterations() {
+        return iterations;
     }
 }

@@ -6,5 +6,5 @@ import java.util.List;
 public interface ISynthesizer {
 
 
-    Duration synthezise() throws SabanaResearchException;
+    List <String> synthezise() throws SabanaResearchException;
 }
