@@ -55,6 +55,8 @@ public class SabanaResearchTest {
         new NormalActivity("Study previous models", Activity.PENDING_STATE, iterations.get(3));
 
 
+
+
         sabanaResearch = new SabanaResearch(groups);
         // Assert count of plans
         assertEquals(sabanaResearch.countOfGroups(), groups.size(), "The default count of groups");
@@ -82,6 +84,32 @@ public class SabanaResearchTest {
         assertNotNull(summary.getDate(), "Validate summary date.");
         assertEquals(summary.getActiveProjects(), 2, "Validate number of active projects");
         assertEquals(sabanaResearch.countOfSummaries(), 1, "The default count of summaries");
+    }
+
+    @Test
+    @DisplayName("GIVEN sabana research WHEN open an iteration THEN Count closed activities")
+    public void shouldCountClosedActivities() throws SabanaResearchException {
+
+        Iteration I = new Iteration("1. Understand Virus", projects.get(0));
+        new NormalActivity("Invest", Activity.CLOSED_STATE, I);
+        new NormalActivity("Investiga", Activity.ACTIVE_STATE, I);
+        new NormalActivity("Investigate AR", Activity.CANCELED_STATE, I);
+        new NormalActivity("Invests", Activity.CLOSED_STATE, I);
+
+        assertEquals(3, I.countClosedActivities(), "The default count of summaries");
+    }
+
+    @Test
+    @DisplayName("GIVEN sabana research WHEN open an iteration THEN Count open activities")
+    public void shouldCountOpenActivities() throws SabanaResearchException {
+
+        Iteration J = new Iteration("1. Understand Virus", projects.get(0));
+        new NormalActivity("Investigate DNA", Activity.CLOSED_STATE, J);
+        new NormalActivity("Investigate MRU", Activity.ACTIVE_STATE, J);
+        new NormalActivity("Investigate LOL", Activity.CANCELED_STATE, J);
+        new NormalActivity("Investigate HELP", Activity.CLOSED_STATE, J);
+
+        assertEquals(1, J.countOpenActivities(), "The default count of summaries");
     }
 
 }

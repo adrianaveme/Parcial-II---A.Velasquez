@@ -35,7 +35,7 @@ public abstract class Activity  {
     }
     public boolean isClosed()  {
 
-        return this.state.equals(CLOSED_STATE);
+        return !isActive();
     }
 
     /**
